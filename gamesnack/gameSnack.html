@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🐍 Snake Game Neon</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d1117;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    margin-bottom:15px;
+    color:#00ff99;
+    text-shadow:0 0 15px #00ff99;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.info span{
+    color:#00ff99;
+    font-weight:bold;
+}
+
+canvas{
+    background:#101820;
+    border:4px solid #00ff99;
+    border-radius:10px;
+    box-shadow:
+        0 0 20px #00ff99,
+        inset 0 0 20px #003322;
+}
+
+.controls{
+    margin-top:15px;
+    color:#aaa;
+    line-height:1.8;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#00ff99;
+    color:#000;
+    font-weight:bold;
+    font-size:16px;
+    transition:.2s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#gameOver{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,.92);
+    padding:25px;
+    border:3px solid red;
+    border-radius:15px;
+    box-shadow:0 0 25px red;
+}
+
+#gameOver h2{
+    color:red;
+    margin-bottom:10px;
+}
+
+.mobile{
+    display:none;
+    margin-top:20px;
+}
+
+.row{
+    display:flex;
+    justify-content:center;
+}
+
+.ctrl{
+    width:70px;
+    height:70px;
+    margin:5px;
+    border:none;
+    border-radius:50%;
+    font-size:28px;
+    background:#00ff99;
+    color:#000;
+    font-weight:bold;
+}
+
+@media(max-width:700px){
+
+canvas{
+    width:95vw;
+    height:95vw;
+}
+
+.mobile{
+    display:block;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🐍 Snake Game Neon</h1>
+
+<div class="info">
+<div>Skor : <span id="score">0</span></div>
+<div>High Score : <span id="highScore">0</span></div>
+</div>
+
+<canvas id="game" width="500" height="500"></canvas>
+
+<div class="controls">
+<p>⌨️ Tombol Panah = Gerak</p>
+<p>P = Pause</p>
+<p>R = Restart</p>
+</div>
+
+<button onclick="restartGame()">
+Restart
+</button>
+
+<div id="gameOver">
+<h2>GAME OVER</h2>
+
+<p>Skor :
+<span id="finalScore">0</span>
+</p>
+
+<br>
+
+<button onclick="restartGame()">
+Main Lagi
+</button>
+
+</div>
+
+<div class="mobile">
+
+<div class="row">
+<button class="ctrl" id="up">⬆</button>
+</div>
+
+<div class="row">
+<button class="ctrl" id="left">⬅</button>
+<button class="ctrl" id="down">⬇</button>
+<button class="ctrl" id="right">➡</button>
+</div>
+
+</div>
+
+</div>
+
+<script src="game.js"></script>
+
+
+
+</body>
+</html>
